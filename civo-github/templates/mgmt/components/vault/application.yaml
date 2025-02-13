@@ -35,6 +35,7 @@ spec:
             enabled: true
             annotations: 
               <CERT_MANAGER_ISSUER_ANNOTATION_1>
+              nginx.ingress.kubernetes.io/ssl-redirect: false
               <CERT_MANAGER_ISSUER_ANNOTATION_2>
               <CERT_MANAGER_ISSUER_ANNOTATION_3>
               <CERT_MANAGER_ISSUER_ANNOTATION_4>
