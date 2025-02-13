@@ -46,6 +46,14 @@ spec:
             # activeService: true
             hosts:
               - host: vault.<DOMAIN_NAME>
+                paths:
+                  - path: "/.well-known/acme-challenge/"
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: acme-http-solver
+                        port:
+                          number: 80
             tls:
               - secretName: vault-tls
                 hosts:
