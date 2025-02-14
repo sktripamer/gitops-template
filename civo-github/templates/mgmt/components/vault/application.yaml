@@ -35,7 +35,6 @@ spec:
             enabled: true
             annotations: 
               <CERT_MANAGER_ISSUER_ANNOTATION_1>
-              kubernetes.io/tls-acme: "true"
               <CERT_MANAGER_ISSUER_ANNOTATION_2>
               <CERT_MANAGER_ISSUER_ANNOTATION_3>
               <CERT_MANAGER_ISSUER_ANNOTATION_4>
@@ -46,6 +45,14 @@ spec:
             # activeService: true
             hosts:
               - host: vault.<DOMAIN_NAME>
+            extraPaths:
+              - path: "/.well-known/acme-challenge/"
+                pathType: Prefix
+                backend:
+                  service:
+                    name: acme-http-solver
+                    port:
+                      number: 80              
             tls:
               - secretName: vault-tls
                 hosts:
