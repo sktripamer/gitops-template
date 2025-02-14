@@ -42,6 +42,13 @@ spec:
       - 'dir:///src/{{inputs.parameters.appName}}/'
       - '--destination'
       - '{{inputs.parameters.containerRegistryURL}}'
+      resources:
+        requests:
+          cpu: "250m"
+          memory: "512Mi"
+        limits:
+          cpu: "500m"
+          memory: "1Gi"
   - name: build-push-https
     inputs:
       parameters:
@@ -82,3 +89,10 @@ spec:
       - 'dir:///src/{{inputs.parameters.appName}}/'
       - '--destination'
       - '{{inputs.parameters.containerRegistryURL}}'
+      resources:
+        requests:
+          cpu: "250m"
+          memory: "512Mi"
+        limits:
+          cpu: "500m"
+          memory: "1Gi"
