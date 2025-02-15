@@ -17,13 +17,6 @@ spec:
   - host: <DOMAIN_NAME>
     http:
       paths:
-      - path: /.well-known/acme-challenge/
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: nginx
-            port:
-              name: http
       - path: /
         pathType: ImplementationSpecific
         backend:
